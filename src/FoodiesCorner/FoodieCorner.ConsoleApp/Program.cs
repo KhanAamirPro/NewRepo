@@ -6,7 +6,7 @@ class ExeThis
         int SumOf2 = a + b;
 
         return SumOf2;
-    }
+    } 
     public static void Main()
     {
         Car Car1 = new Car("BMW" , "Blue" , 12 , true);
