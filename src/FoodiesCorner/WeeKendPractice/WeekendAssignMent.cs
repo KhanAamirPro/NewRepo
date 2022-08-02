@@ -36,9 +36,19 @@ public class AssignmentClass
         Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine(">>> You are now executing student class \n");
         Console.ForegroundColor = ConsoleColor.White;
-        Student student = new Student();
-        student.InsertData();
-        student.DisplayData();
+        Student[] student = new Student[3];
+        for(int i =0; i < student.Length; i++)
+        {
+            student[i] = new Student();
+            student[i].InsertData();
+        }
+        Console.ForegroundColor = ConsoleColor.Blue;
+        Console.Write($"\n Name \t\t Age\t Standard \t\t StudentId \n");
+        Console.ForegroundColor = ConsoleColor.White;
+        for (int j=0; j < student.Length; j++)
+        {
+            student[j].DisplayData();
+        }
 
         //Sum of next num SumOfFourthPower class execution calls
 
@@ -49,6 +59,8 @@ public class AssignmentClass
         Console.ForegroundColor = ConsoleColor.White;
         SumOfFourthPower sumOfNext = new SumOfFourthPower();
         sumOfNext.GetInputs();
+
+
 
     }
 }
@@ -61,7 +73,7 @@ public class Perimeter
     int pmeter;
     int area;
 
-    public Perimeter(){}
+    public Perimeter() { }
 
     public void Pmeter()
     {
@@ -81,39 +93,37 @@ public class Perimeter
         Console.ForegroundColor = ConsoleColor.Blue;
         Console.OutputEncoding = System.Text.Encoding.UTF8;
         Console.WriteLine($"\nArea of Rectangle of Height: {Height} cm and width: {Width} cm is {area} cm\u00b2.");
-        Console.ForegroundColor=ConsoleColor.White;
+        Console.ForegroundColor = ConsoleColor.White;
     }
 }
 
 //Student Class - Task 2 cpr@AamirKhan
 public class Student
 {
-    string Name;
+    string ? Name;
     int Age;
-    string Standard;
-    string StudentId;
+    string ? Standard;
+    string ? StudentId;
 
 
-    public Student(){}
-    
+    public Student() { }
+
     public void InsertData()
     {
-        
+
         Console.Write("Enter Name : ");
-        this.Name=Console.ReadLine();
+        this.Name = Console.ReadLine();
         Console.Write("\nEnter Age : ");
-        this.Age=Convert.ToInt32(Console.ReadLine());
+        this.Age = Convert.ToInt32(Console.ReadLine());
         Console.Write("\nEnter Standard : ");
-        this.Standard=Console.ReadLine();
+        this.Standard = Console.ReadLine();
         Guid guid = Guid.NewGuid();
         this.StudentId = guid.ToString();
+        Console.WriteLine("-----------------------------------------------------------\n");
     }
 
     public void DisplayData()
     {
-        Console.ForegroundColor = ConsoleColor.Blue;
-        Console.Write($"\n Name \t\t Age\t Standard \t\t StudentId \n");
-        Console.ForegroundColor = ConsoleColor.White;
         Console.Write($"\n {Name}\t\t {Age}\t {Standard}\t\t {StudentId} \n");
         Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine("\n------------------------------------------------------------------------------------------------\n");
@@ -138,9 +148,9 @@ public class SumOfFourthPower
             num = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("");
 
-            if(num >=1 && num <= 50)
+            if (num >= 1 && num <= 50)
             {
-                for (double i = (num+1); i<=(num+10); i++)
+                for (double i = (num + 1); i <= (num + 10); i++)
                 {
                     if (i < num + 10)
                     {
@@ -148,18 +158,18 @@ public class SumOfFourthPower
                         Console.Write($"{i}\x2074 + ");
                     }
                     else
-                    {  
+                    {
                         Console.OutputEncoding = System.Text.Encoding.UTF8;
                         Console.Write($"{i}\x2074 ");
                     }
-                   
-                    Sum = (Sum+Math.Pow(i, 4));
-                    
+
+                    Sum = (Sum + Math.Pow(i, 4));
+
                 }
                 DisplayResult();
 
                 stopwatch.Stop();
-                Console.ForegroundColor=ConsoleColor.Cyan;
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("Elapsed Time is {0} ms", stopwatch.ElapsedMilliseconds);
 
                 Console.ForegroundColor = ConsoleColor.Yellow;
@@ -169,10 +179,10 @@ public class SumOfFourthPower
                 break;
             }
             else
-            { 
+            {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("\nInvalid Input , Enter a number only between 1 to 50\n");
-                Console.ForegroundColor= ConsoleColor.White;
+                Console.ForegroundColor = ConsoleColor.White;
 
             }
         }
